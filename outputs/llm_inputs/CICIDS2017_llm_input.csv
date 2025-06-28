@@ -1,0 +1,6 @@
+Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),Eval Rank (ROC AUC),Eval Rank (F1),Eval Rank (Accuracy),Eval Rank (AP)
+IForest,1,4.2,0.6859,0.3116,0.7891,0.2603,0.3712,0.2004,2,2,2,2
+LUNAR,2,3.1,0.4796,0.1959,0.7604,0.1599,0.228,0.1231,4,4,4,4
+SO_GAAL,2,3.1,0.6966,0.3722,0.8099,0.3247,0.4745,0.2468,1,1,1,1
+MO_GAAL,2,3.1,0.5985,0.2716,0.7733,0.2051,0.2924,0.1579,3,3,3,3
+LOF,3,2.0,0.4616,0.1862,0.758,0.1197,0.1834,0.0889,5,5,5,5

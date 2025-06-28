@@ -1,0 +1,49 @@
+{
+    "dataset_tags": [
+        "large_sample",
+        "medium_dimensional",
+        "imbalanced",
+        "clean_data",
+        "high_skewness",
+        "high_kurtosis",
+        "structured_data"
+    ],
+    "metrics": [
+        {
+            "Metric": "n_samples",
+            "Value": 9780.0
+        },
+        {
+            "Metric": "n_features",
+            "Value": 67.0
+        },
+        {
+            "Metric": "anomaly_ratio",
+            "Value": 0.185174
+        },
+        {
+            "Metric": "missing_value_ratio",
+            "Value": 0.0
+        },
+        {
+            "Metric": "avg_skewness",
+            "Value": 21.1322
+        },
+        {
+            "Metric": "avg_kurtosis",
+            "Value": 1313.4746
+        },
+        {
+            "Metric": "% features with skew > 2.0",
+            "Value": 97.01
+        },
+        {
+            "Metric": "% features with kurtosis > 7.0",
+            "Value": 83.58
+        },
+        {
+            "Metric": "sparsity_ratio",
+            "Value": 0.3799
+        }
+    ]
+}

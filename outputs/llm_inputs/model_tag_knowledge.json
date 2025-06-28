@@ -1,0 +1,138 @@
+{
+    "IForest": {
+        "strengths": [
+            "structured_data",
+            "high_dimensional",
+            "high_skewness",
+            "high_kurtosis",
+            "sparse",
+            "very_sparse",
+            "highly_imbalanced",
+            "clean_data"
+        ],
+        "weaknesses": [
+            "small_sample"
+        ]
+    },
+    "LOF": {
+        "strengths": [
+            "structured_data",
+            "low_skewness",
+            "low_kurtosis",
+            "balanced",
+            "clean_data"
+        ],
+        "weaknesses": [
+            "high_dimensional",
+            "very_sparse",
+            "missing_data"
+        ]
+    },
+    "AutoEncoder": {
+        "strengths": [
+            "structured_data",
+            "high_dimensional",
+            "clean_data",
+            "balanced",
+            "low_skewness",
+            "low_kurtosis"
+        ],
+        "weaknesses": [
+            "small_sample",
+            "very_sparse",
+            "missing_data"
+        ]
+    },
+    "VAE": {
+        "strengths": [
+            "structured_data",
+            "clean_data",
+            "balanced",
+            "low_skewness",
+            "low_kurtosis"
+        ],
+        "weaknesses": [
+            "small_sample",
+            "very_sparse",
+            "missing_data"
+        ]
+    },
+    "DeepSVDD": {
+        "strengths": [
+            "structured_data",
+            "clean_data",
+            "high_dimensional",
+            "low_skewness",
+            "low_kurtosis"
+        ],
+        "weaknesses": [
+            "sparse",
+            "very_sparse",
+            "missing_data"
+        ]
+    },
+    "DevNet": {
+        "strengths": [
+            "structured_data",
+            "clean_data",
+            "balanced",
+            "low_kurtosis"
+        ],
+        "weaknesses": [
+            "small_sample",
+            "very_sparse",
+            "missing_data"
+        ]
+    },
+    "LUNAR": {
+        "strengths": [
+            "structured_data",
+            "high_dimensional",
+            "clean_data",
+            "high_skewness",
+            "balanced"
+        ],
+        "weaknesses": [
+            "small_sample",
+            "missing_data"
+        ]
+    },
+    "AnoGAN": {
+        "strengths": [
+            "high_dimensional",
+            "clean_data",
+            "high_kurtosis"
+        ],
+        "weaknesses": [
+            "structured_data",
+            "small_sample",
+            "sparse",
+            "very_sparse",
+            "missing_data"
+        ]
+    },
+    "SO_GAAL": {
+        "strengths": [
+            "highly_imbalanced",
+            "high_kurtosis",
+            "structured_data"
+        ],
+        "weaknesses": [
+            "small_sample",
+            "missing_data",
+            "missing_data"
+        ]
+    },
+    "MO_GAAL": {
+        "strengths": [
+            "highly_imbalanced",
+            "high_skewness",
+            "structured_data"
+        ],
+        "weaknesses": [
+            "small_sample",
+            "very_sparse",
+            "missing_data"
+        ]
+    }
+}

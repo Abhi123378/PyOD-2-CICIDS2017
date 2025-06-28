@@ -1,0 +1,45 @@
+{
+    "file": "symbolic_score_formula.json",
+    "symbolic_score_formula": "symbolic_score = sum(TAG_WEIGHTS[tag] for tag in dataset_tags \u2229 model_strengths) - sum(TAG_WEIGHTS[tag] for tag in dataset_tags \u2229 model_weaknesses)",
+    "note": "All TAG_WEIGHTS are positive. Strength tags contribute positively, while weakness tags are subtracted using the same weights. No need for absolute values or penalty multipliers.",
+    "purpose": "This file defines the logic used to estimate how well a model will perform on a dataset before actual evaluation, based on symbolic matching of dataset tags with model strengths and weaknesses.",
+    "components": {
+        "dataset_tags": "Tags describing dataset properties, such as imbalance, sparsity, etc.",
+        "model_strengths": "Tags the model is well-suited for.",
+        "model_weaknesses": "Tags where the model tends to underperform.",
+        "TAG_WEIGHTS": "Numerical weights indicating the importance or impact of each tag.",
+        "symbolic_score": "The final score is calculated by summing weights for strengths and subtracting weights for weaknesses (if they exist in the dataset tags)."
+    },
+    "example": {
+        "model": "IForest",
+        "dataset": "arrhythmia",
+        "dataset_tags": [
+            "small_sample",
+            "high_dimensional",
+            "clean_data",
+            "high_skewness",
+            "high_kurtosis",
+            "structured_data"
+        ],
+        "model_strengths": [
+            "high_dimensional",
+            "clean_data",
+            "high_skewness",
+            "high_kurtosis",
+            "structured_data"
+        ],
+        "model_weaknesses": [
+            "small_sample"
+        ],
+        "TAG_WEIGHTS": {
+            "small_sample": 0.8,
+            "high_dimensional": 1.1,
+            "clean_data": 1.0,
+            "high_skewness": 1.1,
+            "high_kurtosis": 1.1,
+            "structured_data": 1.0
+        },
+        "score_calculation": "-0.8 (small_sample as weakness) + 1.1 + 1.0 + 1.1 + 1.1 + 1.0 = 4.5"
+    },
+    "example_usage": "This logic helps rank models before actual evaluation using a dataset's characteristics, enabling symbolic reasoning or LLM-driven suggestions."
+}

@@ -1,0 +1,36 @@
+{
+    "sample_size": {
+        "small_sample": "n_samples <= 500",
+        "medium_sample": "500 < n_samples <= 5000",
+        "large_sample": "n_samples > 5000"
+    },
+    "dimensionality": {
+        "low_dimensional": "n_features <= 10",
+        "medium_dimensional": "10 < n_features <= 100",
+        "high_dimensional": "n_features > 100"
+    },
+    "imbalance": {
+        "highly_imbalanced": "anomaly_ratio < 0.05",
+        "imbalanced": "0.05 <= anomaly_ratio < 0.2",
+        "balanced": "anomaly_ratio >= 0.2"
+    },
+    "missing_data": {
+        "missing_data": "missing_ratio > 0",
+        "clean_data": "missing_ratio == 0"
+    },
+    "skewness": {
+        "high_skewness": "pct_high_skew > 20",
+        "low_skewness": "pct_high_skew < 5"
+    },
+    "kurtosis": {
+        "high_kurtosis": "pct_high_kurt > 20",
+        "low_kurtosis": "pct_high_kurt < 5"
+    },
+    "sparsity": {
+        "very_sparse": "zero_ratio > 0.95",
+        "sparse": "0.75 < zero_ratio <= 0.95"
+    },
+    "structure": {
+        "structured_data": "Tabular structured dataset"
+    }
+}

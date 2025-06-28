@@ -1,0 +1,6 @@
+Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),Eval Rank (ROC AUC),Eval Rank (F1),Eval Rank (Accuracy),Eval Rank (AP)
+LOF,1,3.8,0.943,0.3162,0.921,0.3575,0.2481,0.64,1,2,1,2
+AutoEncoder,1,3.8,0.9385,0.5504,0.919,0.398,0.2671,0.78,2,1,2,1
+VAE,1,3.8,0.6077,0.0536,0.8771,0.0914,0.0612,0.18,5,5,5,5
+DeepSVDD,1,3.8,0.7634,0.2107,0.8929,0.2041,0.137,0.4,3,3,3,3
+IForest,2,3.2,0.7446,0.1171,0.8915,0.1939,0.1301,0.38,4,4,4,4

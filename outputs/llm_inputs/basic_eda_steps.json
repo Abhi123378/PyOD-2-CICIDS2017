@@ -1,0 +1,15 @@
+{
+    "file": "basic_eda_steps.json",
+    "description": "List of basic EDA steps already applied to avoid affecting tag generation.",
+    "steps": [
+        "Mixed-Type data detection and handling",
+        "Dropped rows with NaN, Inf, or missing values (if small proportion)",
+        "Dropped duplicate rows",
+        "Converted numeric object-type columns to numeric",
+        "Dropped known non-feature columns",
+        "Dropped zero-variance columns",
+        "Whitespace removed from column names",
+        "Mapped label column to binary (0 = negative class)"
+    ],
+    "note": "Further EDA such as imputation, feature selection, or scaling should be done after model selection."
+}

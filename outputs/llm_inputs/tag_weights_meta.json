@@ -1,0 +1,5 @@
+{
+    "file": "tag_weights.json",
+    "description": "Numerical weights used during symbolic score computation for how well a dataset's tags align with a model's strengths.",
+    "note": "All weights are positive. Tags contribute positively if matched as strengths, and are subtracted if matched as weaknesses."
+}

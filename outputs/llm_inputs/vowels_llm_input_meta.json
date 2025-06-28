@@ -1,0 +1,5 @@
+{
+    "dataset": "vowels",
+    "sorted_by": "Symbolic Score",
+    "description": "This file lists the top symbolically ranked models and their actual evaluation performance for comparison by LLM."
+}

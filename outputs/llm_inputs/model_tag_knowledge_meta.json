@@ -1,0 +1,4 @@
+{
+    "file": "model_tag_knowledge.json",
+    "description": "Tag-based strengths and weaknesses of each model, defined manually based on domain knowledge."
+}
