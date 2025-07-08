@@ -1,0 +1,174 @@
+import json
+import os
+
+# Re-run after kernel reset
+
+# Refined prompt template with fine-tuning
+refined_prompt_template = {
+    "report_heading": "LLM-Augmented Model Selection and Advisory Report for {{dataset_name}}",
+    "task": (
+        "You are a senior data scientist reviewing the results of an automated anomaly detection pipeline. "
+        "Your task is to interpret symbolic scores, classifier metrics, dataset tags, and model knowledge to generate a structured and professional report. "
+        "The AutoModelAdvisor integrates symbolic reasoning, empirical validation, and LLM guidance into a unified pipeline. "
+        "Use ONLY the provided tables, heatmaps, and charts in reference_files to support your analysis. "
+        "DO NOT generate your own hypothetical visuals or speculative content beyond what's referenced."
+    ),
+    "executive_summary": {
+        "instruction": "Provide a concise summary of the dataset, model evaluation objectives, key model recommendations, and advisory notes.",
+        "sample": (
+            "Dataset used: {{dataset_name}}\n"
+            "Objective: Automatically recommend the most suitable model(s) using symbolic reasoning and classifier metrics.\n"
+            "Evaluation: Compared models on Symbolic Score, F1, ROC AUC, Accuracy, and AP.\n"
+            "Outcome: [Top model(s) and justification]\n"
+            "Advisory Note: Suggested hyperparameters or EDA improvements if applicable."
+        )
+    },
+    "introduction": {
+        "instruction": "Explain how the report is generated using symbolic reasoning, statistical profiling, and LLM augmentation.",
+        "sample": (
+            "This report is generated using a hybrid model selection framework that integrates symbolic reasoning, statistical profiling, "
+            "and Large Language Model (LLM) augmentation. The pipeline first analyzes the dataset's characteristics — such as dimensionality, "
+            "size, and imbalance — and maps them to a set of predefined symbolic tags derived from domain knowledge and metadata. These tags are "
+            "then used to rank candidate anomaly detection models using a symbolic scoring mechanism. In parallel, classifier performance metrics "
+            "such as F1 Score, ROC AUC, Accuracy, and Average Precision are computed. A GPT-powered advisory module interprets these inputs to "
+            "deliver expert-like recommendations."
+        )
+    },
+    "dataset_overview": {
+        "instruction": (
+            "Using metadata and tags, write a short paragraph about the dataset characteristics and their implications. "
+            "Include sample size, number of features, imbalance ratio, domain, etc. "
+            "Reference the diagnostic EDA and basic EDA performed using the files listed. "
+            "Explain the relevance of the assigned tags to the dataset characteristics. "
+            "Show the tags assigned by the system as a list. "
+            "Use reference_files ONLY to enrich the content and DO NOT invent details beyond what’s provided."
+        ),
+        "metadata": {
+            "sample_size": "<int>",
+            "n_features": "<int>",
+            "imbalance_ratio": "<float>",
+            "domain": "<str>",
+            "tag_summary": ["<tag1>", "<tag2>", "..."]
+        },
+        "reference_files": [
+            "outputs/llm_inputs/EDA/{{dataset_name}}_eda_diagnostic.docx",
+            "outputs/llm_inputs/basic_eda_steps.json"
+        ]
+    },
+    "model_evaluation_summary_analysis": {
+        "instruction": (
+            "Analyse each model's performance using symbolic scores and classifier metrics (F1, AUC, AP, Accuracy) "
+            "ONLY by referencing the provided reference_files. "
+            "Analyze how top models align across metrics and call out anomalies or inconsistencies. "
+            "Strictly refrain from generating hypothetical results. Use the following artifacts: summary_doc, heatmap, grouped bar plots, and multi-metric plots."
+            "Do not include markdown tables under this block"
+        ),
+        "reference_files": {
+            "summary_doc": "outputs/llm_inputs/{{dataset_name}}_llm_eval.docx",
+            "ranking_table_img": "outputs/llm_inputs/{{dataset_name}}_llm_eval.png",
+            "heatmap": "outputs/llm_inputs/heatmaps/{{dataset_name}}_rank_heatmap.png",
+            "bar_by_metric": "outputs/llm_inputs/graphs/{{dataset_name}}_ranking_bars_per_metric.png",
+            "multi_metric": "outputs/llm_inputs/graphs/{{dataset_name}}_model_wise_multi_metric_rankings.png"
+        }
+    },
+    "llm_recommendation_block": {
+        "task": "Analyze symbolic ranks and evaluation metrics to recommend suitable models. Justify decisions based on symbolic tags, model tags and scores.",
+        "comment": [
+            "Use tag_summary, model_tag_knowledge.json and symbolic_score_formula.json for reasoning.",
+            "Explain model suitability based on dataset characteristics and model characteristics.",
+            "Flag unsuitable models with clear reasons.",
+            "Justify selection and rejection decisions clearly.",
+            "If classifier-best model is within top 3 symbolic ranks, consider it a valid recommendation and justify the usefulness of the symbolic rankings."
+        ],
+        "next_steps": [
+            "Summarize top 1–2 models recommended.",
+            "Present concise pros and cons of each."
+        ],
+        "report_structure": [
+            "Header: LLM-Informed Recommendation and Justification",
+            "Section A: Recommended Model(s) with Explanation",
+            "Section B: Rejected/Unsuitable Models with Rationale"
+        ]
+    },
+    "llm_advisory_block": {
+        "task": (
+            "Analyze diagnostic EDA results and basic EDA steps and symbolic traits to recommend preprocessing and tuning strategies. "
+            "Bridge empirical findings with symbolic reasoning for expert-like guidance."
+        ),
+        "comment": [
+            "Refer to EDA diagnostics and stage 2 cleaning steps.",
+            "Refer to outputs/llm_inputs/EDA/{{dataset_name}}_eda_diagnostic.docx and outputs/llm_inputs/basic_eda_steps.json.",
+            "Suggest preprocessing steps like normalization, encoding, outlier removal, dimensionality reduction as needed.",
+            "Suggest model-specific and data context hyperparameter tuning."
+        ],
+        "next_steps": [
+            "List concrete preprocessing actions.",
+            "List hyperparameters to tune and rationale."
+        ],
+        "report_structure": [
+            "Header: Data Preprocessing & Optimization Recommendations",
+            "Section A: Additional EDA or Preprocessing Suggestions",
+            "Section B: Hyperparameter Tuning Strategies for Recommended Models"
+        ]
+    },
+    "llm_final_block": {
+        "task": "Summarize the final model recommendation and outline steps for deployment readiness. Highlight how the system served both selection and advisory roles.",
+        "comment": [
+            "Recap top model(s) with rationale, emphasize readiness and advisory insights.",
+            "Mention limitations and list 2–3 concrete next steps like cross-validation or production testing.",
+            "Reaffirm model + advisory combo as the unique value proposition."
+        ],
+        "report_structure": [
+            "Section A: Recommended Model(s) Summary",
+            "Section B: Pre-Deployment Readiness Notes",
+            "Section C: Recommended Actions to Prepare for Deployment"
+        ]
+    },
+    "input_file_summary": (
+        "\nAvailable Input Files for LLM:\n"
+        "Static:\n"
+        "- basic_eda_steps.json\n"
+        "- tag_definitions.json\n"
+        "- tag_definitions_meta.json\n"
+        "- model_tag_knowledge.json\n"
+        "- model_tag_knowledge_meta.json\n"
+        "- tag_weights.json\n"
+        "- tag_weights_meta.json\n"
+        "- symbolic_score_formula.json\n\n"
+        "Dynamic (Per Dataset):\n"
+        "- <dataset>_tags.json\n"
+        "- <dataset>_llm_input.csv\n"
+        "- <dataset>_llm_input_meta.json\n"
+        "- <dataset>_eda_diagnostic.docx\n"
+        "- <dataset>_llm_eval.docx\n"
+        "- <dataset>_llm_eval.png\n"
+        "- <dataset>_rank_heatmap.png\n"
+        "- <dataset>_ranking_bars_per_metric.png\n"
+        "- <dataset>_model_wise_multi_metric_rankings.png\n"
+        "These files must be reviewed by the LLM before producing insights."
+    ),
+    "report_structure": [
+        "1. Executive Summary: LLM-Driven Model Recommendation for {{dataset_name}}",
+        "2. Introduction: Methodology Behind the Recommendation",
+        "3. Dataset Overview and Key Characteristics",
+        "4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis",
+        "5. Visual Insights: Heatmap and Grouped Bar Plots Analysis",
+        "6. LLM-Informed Recommendation and Justification",
+        "7. Data Preprocessing & Optimization Recommendations ",
+        "8. Final Recommendation and Deployment Readiness",
+        "9. Annexure",
+        "{{summary_doc}}",
+        "{{heatmap}}",
+        "{{bar_by_metric}}",
+        "{{multi_metric}}"
+    ]
+}
+
+# Save the refined version
+save_path = "outputs/llm_inputs/prompt_template.json"
+os.makedirs(os.path.dirname(save_path), exist_ok=True)
+with open(save_path, "w", encoding="utf-8") as f:
+    json.dump(refined_prompt_template, f, indent=4)
+
+save_path  # Confirm the save location to user
+
