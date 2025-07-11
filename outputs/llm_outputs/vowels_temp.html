@@ -1,0 +1,116 @@
+
+    <style>
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left !important;
+    }
+    </style>
+    
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h2 { text-align: center; font-size: 20pt; }
+            img { display: block; margin: 20px auto; max-width: 90%; }
+        </style>
+    </head>
+    <body>
+    <h3>LLM-Augmented Model Selection and Advisory Report for Vowels Dataset</h3>
+
+<h4>1. Executive Summary:</h4>
+
+<p>This report evaluates the performance of various anomaly detection models on the "vowels" dataset, characterized by medium sample size, medium dimensionality, and a highly imbalanced class distribution. The analysis integrates symbolic scoring and empirical metrics to provide a comprehensive model ranking and recommendation.</p>
+
+<h4>2. Introduction: Methodology Behind the Recommendation</h4>
+
+<p>The AutoModelAdvisor pipeline combines symbolic reasoning, empirical validation, and LLM guidance to assess model performance. Symbolic scores are derived from a rule-based system considering dataset characteristics, while empirical metrics are obtained from model evaluations on the dataset.</p>
+
+<h4>3. Dataset Overview and Key Characteristics</h4>
+
+<ul>
+<li><strong>Sample Size</strong>: 1456</li>
+<li><strong>Features</strong>: 12</li>
+<li><strong>Anomaly Ratio</strong>: 3.43%</li>
+<li><strong>Data Quality</strong>: Clean, with no missing values, low skewness (0.2532), and low kurtosis (0.4338).</li>
+</ul>
+
+<h4>4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis</h4>
+
+<p>All models except IForest received a symbolic score of 3.8, indicating a high potential fit for the dataset based on symbolic reasoning. However, empirical evaluations reveal significant variations in performance metrics like ROC AUC, Average Precision, and F1 scores.</p>
+
+<h4>5. Model Ranking Summary Analysis</h4>
+
+<ul>
+<li><p><strong>LOF (Local Outlier Factor)</strong>: </p>
+
+<ul>
+<li><strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Highest ROC AUC (0.943) and accuracy (0.921), indicating strong overall detection capability. However, its F1 score for the minority class is lower than AutoEncoder, suggesting potential trade-offs in precision and recall balance.</li>
+</ul></li>
+<li><p><strong>AutoEncoder</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Best F1 score for minority class (0.398) and highest Average Precision (0.5504), indicating superior performance in identifying anomalies despite slightly lower ROC AUC (0.9385) compared to LOF.</li>
+</ul></li>
+<li><p><strong>DeepSVDD</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Lower ROC AUC (0.7634) and F1 score (0.2041) suggest it is less effective for this dataset, despite its symbolic ranking.</li>
+</ul></li>
+<li><p><strong>VAE (Variational Autoencoder)</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Lowest across all metrics, indicating a mismatch between symbolic expectations and empirical results.</li>
+</ul></li>
+<li><p><strong>IForest (Isolation Forest)</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Score</strong>: 3.2</li>
+<li><strong>Empirical Performance</strong>: Consistently lower across all metrics compared to LOF and AutoEncoder, aligning with its lower symbolic score.</li>
+</ul></li>
+</ul>
+
+<h4>6. Visual Insights: Heatmap and Grouped Bar Plots Analysis</h4>
+
+<p>The heatmap and bar plots illustrate the comparative performance of models across different metrics, highlighting the strengths of LOF and AutoEncoder in ROC AUC and F1 scores, respectively.</p>
+
+<h4>7. LLM-Informed Recommendation and Justification</h4>
+
+<p>Considering both symbolic and empirical analyses, AutoEncoder is recommended for scenarios prioritizing anomaly detection accuracy (F1 and Average Precision), while LOF is suitable for maximizing overall detection capability (ROC AUC and accuracy).</p>
+
+<h4>8. Data Preprocessing &amp; Optimization Recommendations</h4>
+
+<ul>
+<li>Ensure data normalization to enhance model performance.</li>
+<li>Consider feature engineering to improve model interpretability and detection accuracy.</li>
+</ul>
+
+<h4>9. Hyperparameter Tuning and Guidance for Top Models</h4>
+
+<ul>
+<li><strong>AutoEncoder</strong>: Experiment with different architectures and learning rates to optimize anomaly detection.</li>
+<li><strong>LOF</strong>: Adjust the number of neighbors to balance sensitivity and specificity.</li>
+</ul>
+
+<h4>10. Final Recommendation and Deployment Readiness</h4>
+
+<p>AutoEncoder is recommended for deployment due to its superior performance in detecting anomalies, particularly in highly imbalanced datasets. LOF can be considered as an alternative where overall detection capability is prioritized.</p>
+
+<h4>11. Annexure</h4>
+
+<ul>
+<li>Detailed empirical results and symbolic scoring criteria.</li>
+<li>Additional visualizations and model-specific insights.</li>
+</ul>
+
+    <h2>Model Evaluation Table</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/vowels_llm_eval.png" />
+    <h2>Model Evaluation Heatmap</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/heatmaps/vowels_rank_heatmap.png" />
+    <h2>Model-wise Multi-Metric Rankings</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/graphs/vowels_model_wise_multi_metric_rankings.png" />
+    </body>
+    </html>
+    

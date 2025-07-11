@@ -1,0 +1,112 @@
+
+    <style>
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left !important;
+    }
+    </style>
+    
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h2 { text-align: center; font-size: 20pt; }
+            img { display: block; margin: 20px auto; max-width: 90%; }
+        </style>
+    </head>
+    <body>
+    <h3>LLM-Augmented Model Selection and Advisory Report for Ionosphere Dataset</h3>
+
+<h4>1. Executive Summary:</h4>
+
+<p>This report provides a detailed analysis of anomaly detection models applied to the Ionosphere dataset. The models are evaluated using a combination of symbolic reasoning and empirical metrics. The report highlights the strengths and weaknesses of each model and provides recommendations for their use based on the dataset's characteristics.</p>
+
+<h4>2. Introduction: Methodology Behind the Recommendation</h4>
+
+<p>The AutoModelAdvisor integrates symbolic reasoning with empirical validation to assess model performance. Symbolic scores are derived from a set of predefined rules and heuristics, while empirical metrics are obtained from model evaluations on the dataset.</p>
+
+<h4>3. Dataset Overview and Key Characteristics</h4>
+
+<p>The Ionosphere dataset is characterized by:
+- <strong>Small Sample Size</strong>: 351 samples
+- <strong>Medium Dimensionality</strong>: 33 features
+- <strong>Balanced and Clean Data</strong>: No missing values, low skewness (0.6127), and low kurtosis (0.632)
+- <strong>Low Anomaly Ratio</strong>: Approximately 35.9% anomalies
+- <strong>Structured Data</strong>: Suitable for models that handle structured inputs efficiently</p>
+
+<h4>4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis</h4>
+
+<p>The symbolic scores and empirical metrics reveal some discrepancies in model performance rankings. Symbolic scores are intended to provide a holistic view, while empirical metrics offer precise performance measurements.</p>
+
+<h4>5. Model Ranking Summary Analysis</h4>
+
+<ul>
+<li><p><strong>LOF (Local Outlier Factor)</strong>: </p>
+
+<ul>
+<li><strong>Symbolic Rank</strong>: 1, <strong>Symbolic Score</strong>: 4.6</li>
+<li><strong>Empirical Performance</strong>: Strong ROC AUC (0.8939) and high precision (0.9091) but low recall (0.2381) and F1 (0.3774). This indicates a model that is precise in identifying anomalies but misses many.</li>
+<li><strong>Trade-offs</strong>: High precision suggests reliability in detected anomalies, but low recall indicates a need for improvement in capturing all anomalies.</li>
+</ul></li>
+<li><p><strong>AutoEncoder</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Rank</strong>: 2, <strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Best overall with top ranks in ROC AUC (0.9163), Average Precision (0.8961), and F1 Minority (0.4348). Perfect precision (1.0) but moderate recall (0.2778).</li>
+<li><strong>Trade-offs</strong>: Excellent precision and overall performance make it suitable for high-stakes environments where false positives are costly.</li>
+</ul></li>
+<li><p><strong>VAE (Variational Autoencoder)</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Rank</strong>: 2, <strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Moderate across metrics with ROC AUC (0.839) and F1 (0.3975). High precision (0.9143) but low recall (0.254).</li>
+<li><strong>Trade-offs</strong>: Similar to LOF, it is precise but less comprehensive in anomaly detection.</li>
+</ul></li>
+<li><p><strong>DeepSVDD</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Rank</strong>: 2, <strong>Symbolic Score</strong>: 3.8</li>
+<li><strong>Empirical Performance</strong>: Lower ROC AUC (0.7365) but decent F1 (0.4224). High precision (0.9714) and moderate recall (0.2698).</li>
+<li><strong>Trade-offs</strong>: Balanced performance with slightly better recall than LOF and VAE, suitable for moderate anomaly detection needs.</li>
+</ul></li>
+<li><p><strong>DevNet</strong>:</p>
+
+<ul>
+<li><strong>Symbolic Rank</strong>: 3, <strong>Symbolic Score</strong>: 2.9</li>
+<li><strong>Empirical Performance</strong>: Lowest across all metrics with ROC AUC (0.6219) and F1 (0.1615). Poor precision (0.3714) and recall (0.1032).</li>
+<li><strong>Trade-offs</strong>: Not recommended due to poor performance across all metrics.</li>
+</ul></li>
+</ul>
+
+<h4>6. Visual Insights: Heatmap and Grouped Bar Plots Analysis</h4>
+
+<p>The heatmap and grouped bar plots provide a visual comparison of model performance across different metrics, highlighting the strengths of the AutoEncoder and the weaknesses of DevNet.</p>
+
+<h4>7. LLM-Informed Recommendation and Justification</h4>
+
+<p>Based on the analysis, the AutoEncoder is recommended for its superior empirical performance and symbolic score alignment. It is particularly suitable for environments where precision is critical.</p>
+
+<h4>8. Data Preprocessing &amp; Optimization Recommendations</h4>
+
+<p>Given the dataset's characteristics, minimal preprocessing is required. However, feature scaling and dimensionality reduction could enhance model performance.</p>
+
+<h4>9. Hyperparameter Tuning and Guidance for Top Models</h4>
+
+<p>For the AutoEncoder, tuning the learning rate and number of hidden layers could further improve recall without sacrificing precision.</p>
+
+<h4>10. Final Recommendation and Deployment Readiness</h4>
+
+<p>The AutoEncoder is ready for deployment, offering a balanced approach to anomaly detection with high precision and acceptable recall.</p>
+
+<h4>11. Annexure</h4>
+
+<p>Detailed tables and charts supporting the analysis are included in the annexure for further reference.</p>
+
+    <h2>Model Evaluation Table</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/ionosphere_llm_eval.png" />
+    <h2>Model Evaluation Heatmap</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/heatmaps/ionosphere_rank_heatmap.png" />
+    <h2>Model-wise Multi-Metric Rankings</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/graphs/ionosphere_model_wise_multi_metric_rankings.png" />
+    </body>
+    </html>
+    

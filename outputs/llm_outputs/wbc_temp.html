@@ -1,0 +1,76 @@
+
+    <style>
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left !important;
+    }
+    </style>
+    
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h2 { text-align: center; font-size: 20pt; }
+            img { display: block; margin: 20px auto; max-width: 90%; }
+        </style>
+    </head>
+    <body>
+    <h3>LLM-Augmented Model Selection and Advisory Report for WBC Dataset</h3>
+
+<h4>1. Executive Summary:</h4>
+
+<p>This report evaluates the performance of various anomaly detection models on the WBC dataset, characterized by small sample size, medium dimensionality, and significant class imbalance. The analysis integrates symbolic reasoning with empirical validation to provide a comprehensive understanding of model performance.</p>
+
+<h4>2. Introduction: Methodology Behind the Recommendation</h4>
+
+<p>The AutoModelAdvisor pipeline utilizes symbolic scores derived from model characteristics and empirical metrics such as ROC AUC, Average Precision, and F1 Score for minority classes. This dual approach ensures a balanced evaluation of models.</p>
+
+<h4>3. Dataset Overview and Key Characteristics</h4>
+
+<p>The WBC dataset is small (378 samples) with 30 features, exhibiting high skewness and kurtosis, and a low anomaly ratio (5.56%). The absence of missing values and low sparsity ratio indicate a clean dataset, suitable for anomaly detection tasks.</p>
+
+<h4>4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis</h4>
+
+<p>Symbolic scores prioritize models based on theoretical suitability for the dataset's characteristics, while empirical metrics provide performance validation. Discrepancies between these evaluations highlight the importance of context-specific model selection.</p>
+
+<h4>5. Model Ranking Summary Analysis</h4>
+
+<ul>
+<li><p><strong>IForest</strong>: Achieves the highest symbolic score (3.4) and ranks first in ROC AUC and F1 for minority classes. Its high recall (0.7143) suggests strong anomaly detection capability, though precision is moderate (0.3947), indicating potential false positives.</p></li>
+<li><p><strong>LUNAR</strong>: Shares the symbolic rank with SO<em>GAAL and MO</em>GAAL but outperforms them empirically, with a respectable ROC AUC (0.8683) and identical F1 score to IForest. Its symbolic score (2.3) reflects its robustness in handling imbalanced data.</p></li>
+<li><p><strong>SO<em>GAAL and MO</em>GAAL</strong>: Despite sharing a symbolic rank with LUNAR, these models perform poorly empirically, with negligible ROC AUC and F1 scores. Their symbolic scores may overestimate their capability in this context.</p></li>
+<li><p><strong>LOF</strong>: Although symbolically ranked lower (2.0), LOF shows strong empirical performance, with the second-highest ROC AUC (0.9384) and the highest accuracy (0.9259). Its balanced precision and recall make it a reliable choice for datasets with high skewness.</p></li>
+</ul>
+
+<h4>6. Visual Insights: Heatmap and Grouped Bar Plots Analysis</h4>
+
+<p>The heatmap and bar plots illustrate the disparity between symbolic and empirical evaluations, emphasizing the need for a nuanced approach in model selection. IForest and LOF consistently demonstrate superior performance across key metrics.</p>
+
+<h4>7. LLM-Informed Recommendation and Justification</h4>
+
+<p>Based on the analysis, IForest is recommended for its overall balance of recall and precision, making it suitable for detecting anomalies in highly skewed datasets. LOF is a strong alternative, particularly where accuracy is prioritized.</p>
+
+<h4>8. Data Preprocessing &amp; Optimization Recommendations</h4>
+
+<p>Given the dataset's skewness and kurtosis, consider normalization or transformation techniques to enhance model performance. Addressing class imbalance through resampling or synthetic data generation may further improve detection rates.</p>
+
+<h4>9. Hyperparameter Tuning and Guidance for Top Models</h4>
+
+<p>Fine-tuning parameters such as the number of estimators for IForest and the contamination factor for LOF can optimize detection capabilities. Cross-validation should be employed to ensure robust performance across different subsets.</p>
+
+<h4>10. Final Recommendation and Deployment Readiness</h4>
+
+<p>IForest is the preferred model for deployment, offering a balanced trade-off between detection sensitivity and precision. LOF serves as a viable backup, particularly in scenarios prioritizing accuracy.</p>
+
+<h4>11. Annexure</h4>
+
+<p>Detailed metrics, model configurations, and additional visualizations are provided to support the analysis and recommendations outlined in this report.</p>
+
+    <h2>Model Evaluation Table</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/wbc_llm_eval.png" />
+    <h2>Model Evaluation Heatmap</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/heatmaps/wbc_rank_heatmap.png" />
+    <h2>Model-wise Multi-Metric Rankings</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/graphs/wbc_model_wise_multi_metric_rankings.png" />
+    </body>
+    </html>
+    

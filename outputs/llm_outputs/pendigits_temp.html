@@ -1,0 +1,91 @@
+
+    <style>
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left !important;
+    }
+    </style>
+    
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h2 { text-align: center; font-size: 20pt; }
+            img { display: block; margin: 20px auto; max-width: 90%; }
+        </style>
+    </head>
+    <body>
+    <h3>LLM-Augmented Model Selection and Advisory Report for Pendigits Dataset</h3>
+
+<h4>1. Executive Summary:</h4>
+
+<p>The anomaly detection task on the Pendigits dataset, characterized by a large sample size, medium dimensionality, and high imbalance, was evaluated using several models. The models were ranked based on symbolic scores and empirical metrics, revealing both alignments and discrepancies. The Variational Autoencoder (VAE) and Isolation Forest (IForest) emerged as top performers under different conditions.</p>
+
+<h4>2. Introduction: Methodology Behind the Recommendation</h4>
+
+<p>The AutoModelAdvisor integrates symbolic reasoning, empirical validation, and LLM guidance to evaluate models. Symbolic scores reflect theoretical suitability, while empirical metrics provide performance validation.</p>
+
+<h4>3. Dataset Overview and Key Characteristics</h4>
+
+<ul>
+<li><strong>Sample Size</strong>: 6870</li>
+<li><strong>Features</strong>: 16</li>
+<li><strong>Anomaly Ratio</strong>: 2.27%</li>
+<li><strong>Data Quality</strong>: Clean, with no missing values</li>
+<li><strong>Distribution</strong>: Low skewness and kurtosis</li>
+</ul>
+
+<h4>4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis</h4>
+
+<p>The symbolic score, a theoretical measure of model suitability, ranked VAE, AutoEncoder, LOF, and DeepSVDD equally at 3.8, while IForest scored 3.2. However, empirical metrics reveal significant performance differences:</p>
+
+<ul>
+<li><strong>VAE</strong>: Achieved the highest ROC AUC (0.9469) and F1 Minority (0.2732), indicating strong detection capability and balance between precision and recall.</li>
+<li><strong>IForest</strong>: Close to VAE in ROC AUC (0.9464) but superior in Average Precision (0.2944), suggesting better precision in identifying anomalies.</li>
+<li><strong>AutoEncoder</strong>: Lower ROC AUC (0.8416) and F1 Minority (0.1139), indicating weaker performance in detecting anomalies.</li>
+<li><strong>LOF and DeepSVDD</strong>: Both models underperformed with low ROC AUC and F1 Minority scores, reflecting limited anomaly detection capability.</li>
+</ul>
+
+<h4>5. Model Ranking Summary Analysis</h4>
+
+<ul>
+<li><strong>VAE</strong>: Best overall empirical performance, excelling in ROC AUC and F1 Minority, making it suitable for scenarios prioritizing balanced detection.</li>
+<li><strong>IForest</strong>: Best Average Precision, ideal for applications where minimizing false positives is critical.</li>
+<li><strong>AutoEncoder, LOF, DeepSVDD</strong>: Lower empirical performance, suggesting limited applicability for this dataset.</li>
+</ul>
+
+<h4>6. Visual Insights: Heatmap and Grouped Bar Plots Analysis</h4>
+
+<p>The heatmap and bar plots illustrate the stark contrast between symbolic scores and empirical metrics, highlighting the importance of empirical validation in model selection.</p>
+
+<h4>7. LLM-Informed Recommendation and Justification</h4>
+
+<p>For the Pendigits dataset, VAE is recommended for its balanced performance across metrics, while IForest is suggested for applications requiring high precision. The symbolic score alignment with empirical results for VAE and IForest supports their selection.</p>
+
+<h4>8. Data Preprocessing &amp; Optimization Recommendations</h4>
+
+<p>Given the clean nature of the dataset, focus on feature scaling and dimensionality reduction to enhance model performance.</p>
+
+<h4>9. Hyperparameter Tuning and Guidance for Top Models</h4>
+
+<ul>
+<li><strong>VAE</strong>: Experiment with latent space dimensionality and learning rate adjustments.</li>
+<li><strong>IForest</strong>: Optimize the number of trees and sample size for improved precision.</li>
+</ul>
+
+<h4>10. Final Recommendation and Deployment Readiness</h4>
+
+<p>Deploy VAE for balanced anomaly detection and IForest for precision-critical tasks. Ensure continuous monitoring and retraining to adapt to potential data shifts.</p>
+
+<h4>11. Annexure</h4>
+
+<p>Detailed metric tables, heatmaps, and bar plots are provided for further analysis and validation.</p>
+
+    <h2>Model Evaluation Table</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/pendigits_llm_eval.png" />
+    <h2>Model Evaluation Heatmap</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/heatmaps/pendigits_rank_heatmap.png" />
+    <h2>Model-wise Multi-Metric Rankings</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/graphs/pendigits_model_wise_multi_metric_rankings.png" />
+    </body>
+    </html>
+    

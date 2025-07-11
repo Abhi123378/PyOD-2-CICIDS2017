@@ -1,6 +1,7 @@
-Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),Eval Rank (ROC AUC),Eval Rank (F1),Eval Rank (Accuracy),Eval Rank (AP)
-LOF,1,4.6,0.5417,0.3724,0.6813,0.206,0.4863,0.1306,3,3,3,3
-AutoEncoder,1,4.6,0.6615,0.5465,0.7259,0.3418,0.7112,0.225,2,2,2,2
+satellite - Model Evaluation Rank Comparison Table
+Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),F1 Rank,ROC AUC Rank,AP Rank,Accuracy Rank
 VAE,1,4.6,0.7427,0.6999,0.7837,0.4806,1.0,0.3163,1,1,1,1
+AutoEncoder,1,4.6,0.6615,0.5465,0.7259,0.3418,0.7112,0.225,2,2,2,2
+LOF,1,4.6,0.5417,0.3724,0.6813,0.206,0.4863,0.1306,3,3,3,3
 DeepSVDD,2,3.8,0.4765,0.3089,0.6491,0.1575,0.3276,0.1036,5,5,5,5
 DevNet,3,3.7,0.5337,0.3478,0.66,0.1836,0.382,0.1208,4,4,4,4

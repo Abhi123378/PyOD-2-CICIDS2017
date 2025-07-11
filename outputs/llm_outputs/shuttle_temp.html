@@ -1,0 +1,80 @@
+
+    <style>
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left !important;
+    }
+    </style>
+    
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h2 { text-align: center; font-size: 20pt; }
+            img { display: block; margin: 20px auto; max-width: 90%; }
+        </style>
+    </head>
+    <body>
+    <h3>LLM-Augmented Model Selection and Advisory Report for Shuttle Dataset</h3>
+
+<h4>1. Executive Summary:</h4>
+
+<p>This report evaluates the performance of various anomaly detection models on the Shuttle dataset, characterized by large sample size, low dimensionality, and significant class imbalance. The analysis integrates symbolic reasoning and empirical validation to provide a comprehensive understanding of model performance.</p>
+
+<h4>2. Introduction: Methodology Behind the Recommendation</h4>
+
+<p>The AutoModelAdvisor pipeline combines symbolic scoring, which assesses models based on theoretical suitability, with empirical metrics derived from model evaluation on the dataset. This dual approach ensures robust model selection by balancing theoretical expectations with actual performance.</p>
+
+<h4>3. Dataset Overview and Key Characteristics</h4>
+
+<p>The Shuttle dataset consists of 49,097 samples with 9 features. It is highly imbalanced, with an anomaly ratio of approximately 7.15%. The dataset is clean, with no missing values, but exhibits high skewness and kurtosis, indicating potential challenges for models sensitive to distributional assumptions.</p>
+
+<h4>4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis</h4>
+
+<ul>
+<li><strong>IForest</strong>: Symbolically ranked highest with a score of 4.2, it also leads in empirical metrics with a ROC AUC of 0.9975 and an F1 Minority score of 0.822. This alignment suggests that IForest is both theoretically and practically well-suited for this dataset.</li>
+<li><strong>MO<em>GAAL, LUNAR, SO</em>GAAL</strong>: All share a symbolic rank of 2 with a score of 3.1. However, their empirical performance varies significantly. MO_GAAL ranks second in empirical metrics but shows a considerable drop in ROC AUC (0.8265) and F1 Minority (0.4448) compared to IForest.</li>
+<li><strong>LOF</strong>: Despite being symbolically ranked third, its empirical performance is the weakest, with a ROC AUC of 0.521 and an F1 Minority score of 0.1267, indicating a mismatch between symbolic expectations and actual results.</li>
+</ul>
+
+<h4>5. Model Ranking Summary Analysis</h4>
+
+<ul>
+<li><strong>IForest</strong> consistently ranks first across all empirical metrics, confirming its robustness and adaptability to the dataset's characteristics.</li>
+<li><strong>MO_GAAL</strong> performs moderately well but struggles with precision and recall, highlighting potential issues in detecting minority classes effectively.</li>
+<li><strong>LUNAR and SO_GAAL</strong> show poor empirical performance despite their symbolic ranking, suggesting that their theoretical strengths do not translate well to this dataset.</li>
+<li><strong>LOF</strong>'s low symbolic and empirical scores indicate it is unsuitable for this dataset.</li>
+</ul>
+
+<h4>6. Visual Insights: Heatmap and Grouped Bar Plots Analysis</h4>
+
+<p>The heatmap and grouped bar plots (not shown here) would likely illustrate the stark contrast between IForest's performance and other models, emphasizing its superior ROC AUC and F1 scores.</p>
+
+<h4>7. LLM-Informed Recommendation and Justification</h4>
+
+<p>Based on both symbolic and empirical analyses, IForest is recommended for deployment. Its high performance across all metrics and alignment with symbolic expectations make it the most reliable choice for anomaly detection in the Shuttle dataset.</p>
+
+<h4>8. Data Preprocessing &amp; Optimization Recommendations</h4>
+
+<p>Given the dataset's high skewness and kurtosis, consider normalization or transformation techniques to further enhance model performance, particularly for models sensitive to distributional assumptions.</p>
+
+<h4>9. Hyperparameter Tuning and Guidance for Top Models</h4>
+
+<p>For IForest, explore tuning the number of trees and sample size to optimize detection capabilities. For MO_GAAL, adjustments in the learning rate and number of generators could improve precision and recall.</p>
+
+<h4>10. Final Recommendation and Deployment Readiness</h4>
+
+<p>IForest is ready for deployment, given its strong empirical performance and alignment with symbolic reasoning. Ensure continuous monitoring and periodic retraining to maintain its effectiveness.</p>
+
+<h4>11. Annexure</h4>
+
+<p>Detailed metrics, model configurations, and additional analyses are available upon request to support further exploration and validation of the findings.</p>
+
+    <h2>Model Evaluation Table</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/shuttle_llm_eval.png" />
+    <h2>Model Evaluation Heatmap</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/heatmaps/shuttle_rank_heatmap.png" />
+    <h2>Model-wise Multi-Metric Rankings</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/graphs/shuttle_model_wise_multi_metric_rankings.png" />
+    </body>
+    </html>
+    

@@ -1,0 +1,93 @@
+
+    <style>
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left !important;
+    }
+    </style>
+    
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h2 { text-align: center; font-size: 20pt; }
+            img { display: block; margin: 20px auto; max-width: 90%; }
+        </style>
+    </head>
+    <body>
+    <h3>LLM-Augmented Model Selection and Advisory Report for Satimage2</h3>
+
+<h4>1. Executive Summary:</h4>
+
+<p>This report evaluates the performance of various anomaly detection models on the satimage2 dataset. The models are ranked based on symbolic scores and empirical metrics to provide a comprehensive understanding of their effectiveness. The dataset is characterized by a large sample size, medium dimensionality, and a highly imbalanced class distribution.</p>
+
+<h4>2. Introduction: Methodology Behind the Recommendation</h4>
+
+<p>The analysis integrates symbolic reasoning, empirical validation, and LLM guidance to assess model performance. Symbolic scores provide an initial ranking based on theoretical expectations, while empirical metrics such as ROC AUC, Average Precision, and F1 (Minority) offer practical performance insights.</p>
+
+<h4>3. Dataset Overview and Key Characteristics</h4>
+
+<ul>
+<li><strong>Sample Size:</strong> 5803</li>
+<li><strong>Features:</strong> 36</li>
+<li><strong>Anomaly Ratio:</strong> 1.22%</li>
+<li><strong>Data Quality:</strong> Clean with no missing values, low skewness, and low kurtosis.</li>
+</ul>
+
+<h4>4. Symbolic Scoring vs. Empirical Evaluation: A Comparative Analysis</h4>
+
+<p>All models except IForest share a symbolic score of 3.8, indicating a theoretical expectation of similar performance. However, empirical metrics reveal significant differences:</p>
+
+<ul>
+<li><strong>VAE</strong> and <strong>IForest</strong> are top performers in terms of ROC AUC and F1 (Minority), indicating strong detection capabilities.</li>
+<li><strong>IForest</strong> outperforms others in ROC AUC (0.9941) and Average Precision (0.9154), suggesting superior precision and recall balance.</li>
+<li><strong>LOF</strong> shows a stark contrast with a low ROC AUC (0.5364) and Average Precision (0.0313), highlighting its inadequacy for this dataset.</li>
+</ul>
+
+<h4>5. Model Ranking Summary Analysis</h4>
+
+<ul>
+<li><strong>IForest</strong>: Despite a lower symbolic rank (2), it excels empirically with the highest scores across ROC AUC, Average Precision, and F1 (Minority). This model is particularly effective in detecting anomalies with high recall (0.9718).</li>
+<li><strong>VAE</strong>: Matches the symbolic score of 3.8 but ranks second empirically. It offers a balanced performance with high recall (0.9296) but lower precision (0.1136).</li>
+<li><strong>AutoEncoder</strong> and <strong>DeepSVDD</strong>: Both models have similar symbolic scores but lag behind in empirical performance, particularly in precision and recall metrics.</li>
+<li><strong>LOF</strong>: Despite a symbolic score of 3.8, its empirical performance is poor, making it unsuitable for this dataset.</li>
+</ul>
+
+<h4>6. Visual Insights: Heatmap and Grouped Bar Plots Analysis</h4>
+
+<p>The heatmap and bar plots illustrate the disparity between symbolic scores and empirical metrics, highlighting the importance of empirical validation in model selection.</p>
+
+<h4>7. LLM-Informed Recommendation and Justification</h4>
+
+<p>Based on the analysis, <strong>IForest</strong> is recommended for deployment due to its superior empirical performance, particularly in highly imbalanced datasets like satimage2. Its ability to maintain high precision and recall makes it ideal for anomaly detection tasks.</p>
+
+<h4>8. Data Preprocessing &amp; Optimization Recommendations</h4>
+
+<ul>
+<li><strong>Feature Scaling</strong>: Ensure features are normalized to enhance model performance.</li>
+<li><strong>Imbalance Handling</strong>: Consider oversampling techniques to improve minority class detection.</li>
+</ul>
+
+<h4>9. Hyperparameter Tuning and Guidance for Top Models</h4>
+
+<ul>
+<li><strong>IForest</strong>: Optimize the number of estimators and contamination parameter to further enhance detection accuracy.</li>
+<li><strong>VAE</strong>: Adjust latent space dimensions and learning rate for better anomaly representation.</li>
+</ul>
+
+<h4>10. Final Recommendation and Deployment Readiness</h4>
+
+<p>Deploy <strong>IForest</strong> for its robust performance in detecting anomalies with high precision and recall. Ensure continuous monitoring and retraining to adapt to any changes in data distribution.</p>
+
+<h4>11. Annexure</h4>
+
+<p>Detailed tables and heatmaps are provided for further reference, illustrating the comparative analysis of model performance metrics.</p>
+
+    <h2>Model Evaluation Table</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/satimage2_llm_eval.png" />
+    <h2>Model Evaluation Heatmap</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/heatmaps/satimage2_rank_heatmap.png" />
+    <h2>Model-wise Multi-Metric Rankings</h2>
+    <img src="file:////home/exouser/Downloads/UofACP/outputs/llm_inputs/graphs/satimage2_model_wise_multi_metric_rankings.png" />
+    </body>
+    </html>
+    

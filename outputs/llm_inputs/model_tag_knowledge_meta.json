@@ -1,4 +1,4 @@
 {
     "file": "model_tag_knowledge.json",
-    "description": "Tag-based strengths and weaknesses of each model, defined manually based on domain knowledge."
+    "description": "Encodes each model's suitability by symbolic tag \u2014 used in symbolic scoring logic."
 }

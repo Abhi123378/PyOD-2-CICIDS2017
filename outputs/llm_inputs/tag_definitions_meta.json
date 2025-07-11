@@ -1,8 +1,8 @@
 {
     "file": "tag_definitions.json",
-    "description": "Criteria used to assign tags to datasets based on feature statistics like skewness, imbalance, etc.",
+    "description": "Defines rules used to assign tags to datasets based on computed feature statistics.",
     "notes": {
-        "pct_high_skew": "percentage of features with skewness > 2.0",
-        "pct_high_kurt": "percentage of features with kurtosis > 7.0"
+        "pct_high_skew": "Percentage of features with skewness > 2.0",
+        "pct_high_kurt": "Percentage of features with kurtosis > 7.0"
     }
 }

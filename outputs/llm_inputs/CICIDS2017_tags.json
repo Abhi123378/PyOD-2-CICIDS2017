@@ -11,15 +11,15 @@
     "metrics": [
         {
             "Metric": "n_samples",
-            "Value": 9780.0
+            "Value": 9783.0
         },
         {
             "Metric": "n_features",
-            "Value": 67.0
+            "Value": 69.0
         },
         {
             "Metric": "anomaly_ratio",
-            "Value": 0.185174
+            "Value": 0.185117
         },
         {
             "Metric": "missing_value_ratio",
@@ -27,23 +27,23 @@
         },
         {
             "Metric": "avg_skewness",
-            "Value": 21.1322
+            "Value": 29.4839
         },
         {
             "Metric": "avg_kurtosis",
-            "Value": 1313.4746
+            "Value": 2378.9594
         },
         {
             "Metric": "% features with skew > 2.0",
-            "Value": 97.01
+            "Value": 97.1
         },
         {
             "Metric": "% features with kurtosis > 7.0",
-            "Value": 83.58
+            "Value": 84.06
         },
         {
             "Metric": "sparsity_ratio",
-            "Value": 0.3799
+            "Value": 0.3937
         }
     ]
 }

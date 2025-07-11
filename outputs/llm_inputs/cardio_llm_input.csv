@@ -1,6 +1,7 @@
-Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),Eval Rank (ROC AUC),Eval Rank (F1),Eval Rank (Accuracy),Eval Rank (AP)
+cardio - Model Evaluation Rank Comparison Table
+Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),F1 Rank,ROC AUC Rank,AP Rank,Accuracy Rank
 IForest,1,4.2,0.9205,0.5816,0.9066,0.5237,0.5137,0.5341,1,1,1,1
-LUNAR,2,3.1,0.6368,0.2302,0.8596,0.2841,0.2787,0.2898,4,4,4,4
-SO_GAAL,2,3.1,0.7794,0.3572,0.8798,0.3855,0.3791,0.392,3,3,3,3
 MO_GAAL,2,3.1,0.7877,0.4317,0.8957,0.468,0.459,0.4773,2,2,2,2
+SO_GAAL,2,3.1,0.7794,0.3572,0.8798,0.3855,0.3791,0.392,3,3,3,3
+LUNAR,2,3.1,0.6368,0.2302,0.8596,0.2841,0.2787,0.2898,4,4,4,4
 LOF,3,2.0,0.5458,0.1543,0.852,0.1763,0.1895,0.1648,5,5,5,5

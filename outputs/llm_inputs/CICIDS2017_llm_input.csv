@@ -1,6 +1,7 @@
-Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),Eval Rank (ROC AUC),Eval Rank (F1),Eval Rank (Accuracy),Eval Rank (AP)
-IForest,1,4.2,0.6859,0.3116,0.7891,0.2603,0.3712,0.2004,2,2,2,2
-LUNAR,2,3.1,0.4796,0.1959,0.7604,0.1599,0.228,0.1231,4,4,4,4
-SO_GAAL,2,3.1,0.6966,0.3722,0.8099,0.3247,0.4745,0.2468,1,1,1,1
-MO_GAAL,2,3.1,0.5985,0.2716,0.7733,0.2051,0.2924,0.1579,3,3,3,3
-LOF,3,2.0,0.4616,0.1862,0.758,0.1197,0.1834,0.0889,5,5,5,5
+CICIDS2017 - Model Evaluation Rank Comparison Table
+Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),F1 Rank,ROC AUC Rank,AP Rank,Accuracy Rank
+IForest,1,4.2,0.6534,0.3189,0.8062,0.3204,0.4566,0.2468,2,1,2,2
+SO_GAAL,2,3.1,0.6241,0.352,0.8213,0.3676,0.5331,0.2805,1,2,1,1
+MO_GAAL,2,3.1,0.6189,0.3134,0.7871,0.2531,0.3609,0.1949,3,3,3,3
+LUNAR,2,3.1,0.4751,0.1941,0.762,0.1656,0.236,0.1276,4,4,4,5
+LOF,3,2.0,0.4607,0.1871,0.7652,0.1464,0.2239,0.1088,5,5,5,4

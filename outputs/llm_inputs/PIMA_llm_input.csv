@@ -1,0 +1,7 @@
+PIMA - Model Evaluation Rank Comparison Table
+Model,Symbolic Rank,Symbolic Score,ROC AUC,Average Precision,Accuracy,F1 (Minority),Precision (Minority),Recall (Minority),F1 Rank,ROC AUC Rank,AP Rank,Accuracy Rank
+LUNAR,1,2.8,0.6722,0.5031,0.6654,0.2551,0.5714,0.1642,1,1,1,1
+AutoEncoder,1,2.8,0.6278,0.4458,0.6471,0.2145,0.4805,0.1381,3,2,2,3
+VAE,1,2.8,0.5396,0.3989,0.6484,0.2197,0.4872,0.1418,2,4,4,2
+LOF,1,2.8,0.6014,0.418,0.6315,0.1502,0.3846,0.0933,4,3,3,4
+DevNet,1,2.8,0.4061,0.312,0.6107,0.1333,0.2987,0.0858,5,5,5,5
